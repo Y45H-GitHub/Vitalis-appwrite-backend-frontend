@@ -35,9 +35,7 @@ const Dashboard = () => {
     const fetchWeather = async () => {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=${
-            import.meta.env.VITE_OPENWEATHER_API_KEY
-          }&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=Delhi&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric`
         );
         setWeather(response.data);
 
