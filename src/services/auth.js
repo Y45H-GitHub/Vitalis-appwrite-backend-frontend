@@ -13,14 +13,20 @@ export const authService = {
   },
 
   // Login user
+  // Login user (force logout if already logged in)
   login: async (email, password) => {
     try {
-      const session = await account.createEmailPasswordSession(email, password);
-      return session;
-    } catch (error) {
-      console.error("Login error:", error);
-      throw error;
+      // Clear any existing session before login
+      await account.deleteSession("current");
+    } catch (err) {
+      if (err.message !== "Session not found") {
+        console.log("Error clearing session:", err.message);
+      }
     }
+
+    // Now create a new session
+    const session = await account.createEmailPasswordSession(email, password);
+    return session;
   },
 
   // Get current user

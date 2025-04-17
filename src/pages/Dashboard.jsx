@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import axios from "axios";
 import { authService } from "../services/auth";
-import { dataService } from "../services/data";
+import { dataService } from "../services/data"; // Ensure you're importing the updated dataService
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const Dashboard = () => {
         );
         setWeather(response.data);
 
-        // Save weather data to Appwrite
+        // Save weather data to Appwrite using the correct collection ID from appwrite.js
         await dataService.saveWeatherData({
           temperature: response.data.main.temp,
           humidity: response.data.main.humidity,

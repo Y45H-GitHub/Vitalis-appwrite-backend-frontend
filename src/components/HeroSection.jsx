@@ -1,7 +1,8 @@
-import React from 'react';
-import { Button } from './ui/button';
-import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom'; //  import for navigation
+import React from "react";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom"; //  import for navigation
+import dashboardImage from "../assets/dashboard.jpg";
 
 const HeroSection = () => {
   const navigate = useNavigate(); //  navigation hook
@@ -18,13 +19,14 @@ const HeroSection = () => {
               Vitality for the <span className="text-primary">Digital Age</span>
             </h1>
             <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Empowering agriculture with technology for seamless plant disease detection and monitoring 
+              Empowering agriculture with technology for seamless plant disease
+              detection and monitoring
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button
                 size="lg"
                 className="gap-1"
-                onClick={() => navigate('/login')} // ⬅️ redirect on click
+                onClick={() => navigate("/login")} // ⬅️ redirect on click
               >
                 Login <ArrowRight size={16} />
               </Button>
@@ -33,13 +35,27 @@ const HeroSection = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4 text-sm">
-              <div className="flex -space-x-2">
-                <img src="/api/placeholder/32/32" alt="User" className="rounded-full border-2 border-background" />
-                <img src="/api/placeholder/32/32" alt="User" className="rounded-full border-2 border-background" />
-                <img src="/api/placeholder/32/32" alt="User" className="rounded-full border-2 border-background" />
-              </div>
+              {/* <div className="flex -space-x-2">
+                <img
+                  src="/api/placeholder/32/32"
+                  alt="User"
+                  className="rounded-full border-2 border-background"
+                />
+                <img
+                  src="/api/placeholder/32/32"
+                  alt="User"
+                  className="rounded-full border-2 border-background"
+                />
+                <img
+                  src="/api/placeholder/32/32"
+                  alt="User"
+                  className="rounded-full border-2 border-background"
+                />
+              </div> */}
               <div className="text-muted-foreground">
-                Joined by over <span className="font-medium text-foreground">5,000+</span> users
+                Joined by{" "}
+                <span className="font-medium text-foreground">Trusted</span>{" "}
+                users
               </div>
             </div>
           </div>
@@ -47,10 +63,10 @@ const HeroSection = () => {
             <div className="relative bg-gradient-to-b from-primary/20 to-background rounded-lg overflow-hidden">
               <div className="p-3">
                 <div className="aspect-video bg-muted rounded-md overflow-hidden">
-                  <img 
-                    src="/api/placeholder/600/400" 
-                    alt="Vitalis Dashboard" 
-                    className="object-cover w-full h-full" 
+                  <img
+                    src={dashboardImage}
+                    alt="Vitalis Dashboard"
+                    className="object-cover w-full h-full"
                   />
                 </div>
               </div>

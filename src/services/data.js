@@ -6,16 +6,13 @@ export const dataService = {
   saveWeatherData: async (data) => {
     try {
       const response = await databases.createDocument(
-        DATABASE_ID,
-        COLLECTIONS.WEATHER_DATA,
-        ID.unique(),
-        {
-          ...data,
-          timestamp: new Date().toISOString(),
-        }
+        DATABASE_ID, // Use the correct DATABASE_ID
+        COLLECTIONS.WEATHER_DATA, // The correct collection ID for weather data
+        data
       );
       return response;
     } catch (error) {
+      console.error("Error saving weather data:", error);
       throw error;
     }
   },
